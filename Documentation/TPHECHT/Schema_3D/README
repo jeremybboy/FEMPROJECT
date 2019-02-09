@@ -1,0 +1,19 @@
+Générer un maillage d'une fonction en 3D 
+Nécéssite l'installation de Gnuplot 
+Nécessite l'installation de Freefem++
+
+
+commande: 
+
+1)function mesh 
+make
+
+gnuplot 
+
+splot "gp" w l 
+
+
+
+2) 3d mesh: cube 
+
+Freefem++ cube.edp 
