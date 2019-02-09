@@ -1,0 +1,35 @@
+ **** 10 ****
+ End read 121 200 mes =1
+ GC: on a converge en iteration 19 g=3.49525e-24 rho=0.268464 gamma=0.0105348
+ Ok = 1
+ err = 121 0.0257448 0.190495
+ **** 20 ****
+ End read 441 800 mes =1
+ GC: on a converge en iteration 44 g=2.93922e-25 rho=0.272558 gamma=0.112201
+ Ok = 1
+ err = 441 0.00687531 0.0497861
+ **** 40 ****
+ End read 1681 3200 mes =1
+ GC: on a converge en iteration 88 g=2.18148e-25 rho=0.365925 gamma=0.457525
+ Ok = 1
+ err = 1681 0.00174769 0.0125858
+ **** 80 ****
+ End read 6561 12800 mes =1
+ GC: on a converge en iteration 172 g=7.5199e-26 rho=0.413226 gamma=0.651204
+ Ok = 1
+ err = 6561 0.00043875 0.00315521
+ **** 160 ****
+ End read 25921 51200 mes =1
+ GC: on a converge en iteration 335 g=1.94602e-26 rho=0.437237 gamma=0.792109
+ Ok = 1
+ err = 25921 0.000109802 0.000789353
+ **** 320 ****
+ End read 103041 204800 mes =1
+ GC: on a converge en iteration 649 g=5.44146e-27 rho=0.486257 gamma=0.910213
+ Ok = 1
+ err = 103041 2.74577e-05 0.000197373
+ **** 640 ****
+ End read 410881 819200 mes =1
+ GC: on a converge en iteration 1256 g=1.42318e-27 rho=0.469834 gamma=0.901093
+ Ok = 1
+ err = 410881 6.86486e-06 4.93453e-05

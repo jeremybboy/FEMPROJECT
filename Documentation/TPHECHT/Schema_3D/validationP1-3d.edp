@@ -1,0 +1,34 @@
+// usage: FreeFem++ carre.edp -nn 10 
+include "getARGV.idp"
+string sTh=getARGV("-Th","Th3.mesh");
+string suc=getARGV("-uc","uc.txt");
+
+mesh3 Th(sTh);
+fespace Vh(Th,P1); 
+Vh uc,u,v,d;
+real aa=pi,bb=2*pi,cc=aa;
+func ue=sin(aa*x)*sin(bb*y)*sin(cc*z);
+func f = (aa*aa+bb*bb+cc*cc)*ue;
+func g = 0.;
+Vh ueh=ue;
+
+macro grad(u) [dx(u),dy(u),dz(u)]// 
+
+solve Pb(u,v,solver=UMFPACK) = int3d(Th) (grad(u)'*grad(v) )  
+              - int3d(Th)( f*v)
+			  +on(1,2,3,4,5,6,u=g);
+			  /*
+{
+	ifstream fc(suc);
+	fc >> uc[]; 
+}
+*/
+plot(u, wait=1);
+/*
+d[] =u[]-uc[];
+real err=d[].linfty ;
+d[] =u[]-ueh[];
+real erre = d[].linfty ;
+cout << " err linfty u uc ="<< err << " " << erre << endl; 
+assert(err<1e-5);
+*/

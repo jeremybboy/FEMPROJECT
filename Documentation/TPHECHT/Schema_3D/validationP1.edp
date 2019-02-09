@@ -1,0 +1,35 @@
+// usage: FreeFem++ carre.edp -nn 10 
+include "getARGV.idp"
+string sTh=getARGV("-Th","Th.msh");
+string suc=getARGV("-uc","uc.txt");
+
+mesh Th(sTh);
+fespace Vh(Th,P1); 
+Vh uc,u,v,d;
+real aa=pi,bb=2*pi;
+func ue=sin(aa*x)*sin(bb*y);
+func f = (aa*aa+bb*bb)*ue;
+func g = 0.;
+Vh ueh=ue;
+Vh fh =f; // le bug etait ici .. 
+// dans le C++ on interpole de second membre , 
+// pour comparer, il faut aussi interpole le second membre
+
+macro grad(u) [dx(u),dy(u)]// 
+
+solve Pb(u,v,solver=UMFPACK) = int2d(Th) (grad(u)'*grad(v) )  
+              - int2d(Th)( fh*v)
+			  +on(1,2,3,4,u=g);
+
+{
+	ifstream fc(suc);
+	fc >> uc[]; 
+}
+
+plot(uc,u, wait=1);
+d[] =u[]-uc[];
+real err=d[].linfty ;
+d[] =u[]-ueh[];
+real erre = d[].linfty ;
+cout << " err linfty u uc ="<< err << " " << erre << endl; 
+assert(err<1e-5);

@@ -1,0 +1,10 @@
+load "msh3"
+// usage: FreeFem++ carre.edp -nn 10 
+include "getARGV.idp"
+int nn=getARGV("-nn",4);
+string sTh=getARGV("-Th","Th3.mesh");
+
+mesh3 Th=cube(nn,nn,nn);
+cout << " sauve msh dans : \"" << sTh << "\"" <<endl; 
+savemesh(Th,sTh);
+plot(Th,cmm=sTh);
