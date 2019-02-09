@@ -1,0 +1,16 @@
+
+Dessiner les aretes d'un maillage 2D 
+
+
+commande à effectuer depuis le terminal :
+
+
+make
+
+./plot Th.msh
+
+gnuplot
+
+plot "gp" w l, "gp" w label offset 1.5
+
+
